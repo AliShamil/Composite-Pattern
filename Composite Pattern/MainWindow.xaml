@@ -7,6 +7,30 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
 
+        <Button FontSize="22" VerticalAlignment="Center" Margin="10 10 10 0" HorizontalAlignment="Right" Click="Button_Click">
+            <Image Source="/icons8-opened-folder-96.png"/>
+
+
+        </Button>
+        
+
+            <ListView Grid.Row="1" ItemsSource="{Binding CurrentFolder.SystemItems}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Name}"></TextBlock>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <StatusBar Grid.Row="2" >
+            <StatusBarItem>
+                <TextBlock Name="txtSize" FontSize="22" VerticalAlignment="Center" HorizontalAlignment="Center" ></TextBlock>
+            </StatusBarItem>
+        </StatusBar>
     </Grid>
 </Window>
